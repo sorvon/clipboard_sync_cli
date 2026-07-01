@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package clipboard.v1;
+
+service ClipboardSyncService {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Set(SetRequest) returns (SetResponse);
+  rpc QrShow(QrShowRequest) returns (QrShowResponse);
+  rpc QrDecode(QrDecodeRequest) returns (QrDecodeResponse);
+  rpc Shutdown(ShutdownRequest) returns (ShutdownResponse);
+  rpc Sync(stream SyncRequest) returns (stream SyncResponse);
+}
+
+enum EncodeType {
+  ENCODE_TYPE_UNSPECIFIED = 0;
+  ENCODE_TYPE_UTF8 = 1;
+  ENCODE_TYPE_BASE64 = 2;
+  ENCODE_TYPE_ZSTD = 3;
+  ENCODE_TYPE_GZ = 4;
+}
+
+message GetRequest {
+  EncodeType encode_type = 1;
+}
+message GetResponse {
+  bytes data = 1;
+}
+message SetRequest {
+  EncodeType encode_type = 1;
+  bytes data = 2;
+}
+message SetResponse {}
+message QrShowRequest {
+  EncodeType encode_type = 1;
+}
+message QrShowResponse {}
+message QrDecodeRequest {
+  bytes data = 1;
+}
+message QrDecodeResponse {
+  string text = 1;
+}
+message ShutdownRequest {}
+message ShutdownResponse {}
+message SyncRequest {
+  bytes data = 1;
+}
+message SyncResponse {
+  bytes data = 1;
+}
