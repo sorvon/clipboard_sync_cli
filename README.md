@@ -18,11 +18,12 @@ clipboard_sync_cli -s [ip:port] -d [DISPLAY/WAYLAND_DISPLAY]
 Windows
 
 ```bash
-clipboard_sync_cli -s [ip:port] -d
+clipboard_sync_cli.exe -s [ip:port] -d
 ```
 
 -s means lauch a http/grpc server, default is `0.0.0.0:11457`
--d means watch the local clipboard change
+-d means watch the local clipboard change, default is environment of
+DISPLAY/WAYLAND_DISPLAY on linux, windows on windows.
 
 #### On nvim config
 
