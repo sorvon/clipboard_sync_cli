@@ -633,7 +633,7 @@ dependencies = [
 
 [[package]]
 name = "clipboard_sync_cli"
-version = "0.3.1"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "arboard",

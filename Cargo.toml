@@ -1,6 +1,6 @@
 [package]
 name = "clipboard_sync_cli"
-version = "0.3.1"
+version = "1.0.0"
 description = "Synchronizing the clipboard among multiple machines"
 edition = "2024"
 
